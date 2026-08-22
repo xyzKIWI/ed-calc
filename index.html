@@ -3,44 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- ①改標題 -->
-<title>工具名稱</title>
+<title>急診臨床計算機</title>
 <style>
-  :root{
-    --navy:#16395b; --navy2:#1e4d77; --teal:#0e7490; --teal-l:#e0f2fe;
-    --ink:#1f2937; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0; background:var(--bg); color:var(--ink); line-height:1.7; font-size:16px;
-    font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans TC","Segoe UI",sans-serif;}
-  header{background:linear-gradient(135deg,var(--navy),var(--navy2)); color:#fff;
-    padding:28px 20px 22px; text-align:center;}
-  header h1{font-size:1.4rem; margin:0 0 6px; font-weight:700;}
-  header .sub{color:#cfe3f4; font-size:.9rem;}
-  .wrap{max-width:760px; margin:0 auto; padding:20px;}
-  .panel{background:#fff; border:1px solid var(--line); border-radius:10px;
-    padding:16px 20px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.05);}
-  .disc{max-width:760px; margin:10px auto 40px; padding:12px 18px; font-size:.8rem;
-    color:var(--muted); background:#fff; border:1px solid var(--line); border-radius:10px;}
+  :root{--navy:#16395b;--navy2:#1e4d77;--teal:#0e7490;--ink:#1f2937;--muted:#64748b;--line:#e2e8f0;--bg:#f8fafc}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;font-size:16px;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans TC","Segoe UI",sans-serif}
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:28px 20px 22px;text-align:center}
+  header h1{font-size:1.4rem;margin:0 0 6px;font-weight:700} header .sub{color:#cfe3f4;font-size:.9rem}
+  .wrap{max-width:860px;margin:0 auto;padding:20px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+  .card{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .card:hover{border-color:var(--teal)} .card h2{font-size:1.05rem;margin:0 0 4px;display:flex;justify-content:space-between;align-items:baseline}
+  .card .n{font-size:.75rem;color:var(--teal);font-weight:600} .card p{margin:0;font-size:.82rem;color:var(--muted);line-height:1.5}
+  .how{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:0 0 14px;font-size:.88rem}
+  .disc{max-width:860px;margin:10px auto 40px;padding:12px 18px;font-size:.8rem;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:10px}
+  a{color:var(--teal)}
+  @media (prefers-color-scheme:dark){:root{--bg:#11161c;--ink:#e7edf2;--muted:#9aa9b6;--line:#303a44} .card,.how,.disc{background:#192028}}
 </style>
 </head>
 <body>
 <header>
-  <!-- ①改標題與副標 -->
-  <h1>工具名稱</h1>
-  <div class="sub">一句話說明這個工具做什麼</div>
+  <h1>急診臨床計算機</h1>
+  <div class="sub">72 個評分／公式／決策規則・離線單頁・每項標示原始文獻與來源數</div>
 </header>
 <div class="wrap">
-  <div class="panel">
-    <!-- ②工具本體寫在這裡（輸入欄、結果區、資料表…） -->
-    工具內容
+  <div class="how">每頁可離線使用、不連外；頁內有搜尋。決策規則（PECARN、Canadian C-Spine、New Orleans 等）先問<b>適用條件</b>，不符者不會給出「不需影像」類建議。右下角 💬 可回饋盲點。</div>
+  <div class="grid">
+  <a class="card" href="calc-ten.html"><h2>核心十項<span class="n">10 項</span></h2><p>最常用、經獨立審查最嚴的十個：MAP、休克指數、Parkland、4-2-1、qSOFA、CRB-65、NEXUS 頸椎、Ottawa 膝、sPESI、ABCD²</p></a>
+  <a class="card" href="calc-trauma.html"><h2>外傷<span class="n">12 項</span></h2><p>ABC Score 大量輸血預測、NEXUS Head CT 準則、Pittsburgh 膝關節準則、九則法 Rule of Nines 燒傷面積、STUMBL / Battle 肋骨骨折評分、Canadian C-Spine Rule 頸椎影像決策、Canadian CT Head Rule 頭部 CT 決策、Modified Denver 準則、New Orleans 頭部 CT 準則、NEXUS Chest CT 準則、NEXUS Chest 鈍性胸傷影像準則、Ottawa 踝關節準則</p></a>
+  <a class="card" href="calc-cardio.html"><h2>心血管<span class="n">12 項</span></h2><p>4PEPS 四階肺栓塞臨床機率、CHA₂DS₂-VASc 心房顫動中風風險、校正 QT 間期 QTc、HEAR Score、Killip 分級、PERC 肺栓塞排除準則、PESI 肺栓塞嚴重度指數、TIMI 風險評分、ADD-RS 主動脈剝離風險評分、修正 Geneva 評分、Wells 準則、Wells 準則</p></a>
+  <a class="card" href="calc-neuro.html"><h2>神經<span class="n">9 項</span></h2><p>Modified Rankin Scale、RACE 大血管阻塞評估、⚠ tPA (alteplase) 中風劑量、ABC/2 腦出血體積估算、GCS 昏迷指數、Hunt-Hess 蛛網膜下腔出血分級、ICH Score 腦出血預後、NIHSS 中風量表、Ottawa SAH 準則</p></a>
+  <a class="card" href="calc-peds.html"><h2>兒科<span class="n">8 項</span></h2><p>BRUE 2.0 風險預測、PECARN 兒童頸椎損傷影像決策、PECARN 兒童腹內傷風險、BRUE 準則、PECARN 兒童頭部外傷影像決策、兒童氣管內管尺寸、兒童外傷評分 PTS、Westley 咳吼嚴重度</p></a>
+  <a class="card" href="calc-triage.html"><h2>檢傷與流程<span class="n">6 項</span></h2><p>理想體重 IBW / 校正體重 ABW、MEWS 早期警示評分、NEWS 國家早期警示評分、NEWS2 國家早期警示評分、尿量 / 體液平衡、RASS 鎮靜躁動量表</p></a>
+  <a class="card" href="calc-resp.html"><h2>呼吸／感染<span class="n">5 項</span></h2><p>氣管內管深度與潮氣容積、HEAVEN 困難插管預測、SpO₂/FiO₂ 比值、修正 Centor、ROX Index</p></a>
+  <a class="card" href="calc-tox.html"><h2>中毒／精神<span class="n">5 項</span></h2><p>BAWS 簡式酒精戒斷量表、CIWA-Ar 酒精戒斷評估、C-SSRS 哥倫比亞自殺嚴重度、HEADS-ED 兒少心理社會篩檢、⚠ Acetaminophen 過量 NAC 劑量</p></a>
+  <a class="card" href="calc-gi.html"><h2>腸胃／其他<span class="n">5 項</span></h2><p>Rockall 評分、Rockall 評分、West Haven 肝性腦病分級、Burch-Wartofsky 甲狀腺風暴評分、TWIST 睪丸扭轉評分</p></a>
   </div>
 </div>
 <div class="disc">
-  <!-- ③免責聲明照抄可用；「資料校對」日期每次改資料都要更新 -->
-  ⚠️ <b>免責：</b>本工具僅供臨床決策輔助參考，不取代臨床判斷、官方仿單與最新指引，
-  使用前請自行核對原始資料來源。（資料校對：YYYY-MM-DD）
+  ⚠️ <b>免責：</b>本工具僅供臨床決策輔助參考，不取代臨床判斷、官方仿單、院內規範與最新指引；藥物計算僅重現公式，使用前請自行核對原始資料來源。
+  資料來源：各評分之原始文獻（卡片內標示）、院內流程（tPA 組套、NAC 兩袋法）；來源層級、裁決紀錄、測試與授權說明見 <a href="https://github.com/xyzKIWI/ed-calc#readme">README</a>。（資料校對：2026-08-22）
 </div>
-<!-- ④若有藥物/代碼等資料，建議放獨立 data.js 方便校對與更新 -->
 </body>
 </html>
