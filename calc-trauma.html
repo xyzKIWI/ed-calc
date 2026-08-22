@@ -24,7 +24,7 @@ function formula(k,x){
 function mixed(k,x){let b=z=>z==='Yes'||z===1||z==='1'?1:0;if(k==='pesi')return x.age+10*b(x.male)+30*b(x.cancer)+10*b(x.hf)+10*b(x.lung)+20*b(x.pulse)+30*b(x.sbp)+20*b(x.rr)+20*b(x.temp)+60*b(x.mental)+20*b(x.spo2);if(k==='stumbl'){let sat={'≥95%':0,'90-94%':2,'85-89%':4,'80-84%':6}[x.spo2];return Math.floor(x.age/10)+3*x.ribs+5*b(x.lung)+4*b(x.anticoag)+sat}return Number(x.facial)+Number(x.arm)+Number(x.leg)+Number(x.gaze)+Number(x.cortical)}
 function scoreInterpretation(s,score,maxItem,answers){
  if(s==='4-level-pulmonary-embolism-clinical-probability-score-4peps')return score<0?'Very low CPP (<2%); PE can be ruled out':score<=5?'Low CPP (2-20%); PE can be ruled out if D-dimer level <1.0 μg/mL':score<=12?'Moderate CPP (20-65%); apply the verbatim D-dimer criteria':'High CPP (>65%); PE cannot be ruled out without imaging testing';
- if(s==='abc-score-massive-transfusion')return score<=1?'Not likely to require massive transfusion (≥10 units pRBCs)':'Likely to require massive transfusion';
+ if(s==='abc-score-massive-transfusion')return score<=1?'ABC ≤1：大量輸血（≥10 U pRBC）需求機率低':'ABC ≥2：預測需要大量輸血（≥10 U pRBC），啟動 MTP 評估';
  if(s==='cha2ds2-vasc-score-atrial-fibrillation-stroke-risk'){let a=[[.2,.3],[.6,.9],[2.2,2.9],[3.2,4.6],[4.8,6.7],[7.2,10],[9.7,13.6],[11.2,15.7],[10.8,15.2],[12.2,17.4]][score];return a?`Risk of ischemic stroke ${a[0]}%; Risk of stroke/TIA/systemic embolism ${a[1]}% (Friberg 2012 Swedish cohort, as shown on MDCalc; not the Lip 2010 derivation table)`:'Score outside the specified 0–9 table.'}
  if(s==='ciwa-ar-alcohol-withdrawal')return score<=8?'Absent or minimal withdrawal':score<=19?'Mild to moderate withdrawal':'Severe withdrawal';
 
